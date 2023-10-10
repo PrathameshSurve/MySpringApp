@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible; Content-Type" content="IE=edge; text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+</head>
+<body>
+    <div class="form1">
+        <form action="/login" method="post">
+            <h1>Sign Up!</h1>
+           <label for="name">Full Name</label>
+            <input type="text" name="uname" id="name" placeholder="Enter Full Name" required/>
+            <label for="email">Enter Email</label>
+            <input type="email" name="uemail" id="email" placeholder="Enter Email Address" required/>
+            <label for="password">Enter Password</label>
+            <input type="password" name="upassword" id="password" placeholder="Choose Password" required/>
+            <label for="confirmpassword">Confirm Password</label>
+            <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password" required/>
+            <br>
+            <input type="submit" value="Sign Up"/>
+        </form> 
+    </div>
+</body>
+</html>
