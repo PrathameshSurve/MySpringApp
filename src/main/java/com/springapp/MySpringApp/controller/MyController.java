@@ -1,28 +1,21 @@
 package com.springapp.MySpringApp.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-// import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.RequestParam;
-// import org.springframework.web.servlet.ModelAndView;
-// import org.springframework.web.bind.annotation.RestController;
-// import java.io.IOException;
 
 import com.springapp.MySpringApp.model.LoginUser;
 import com.springapp.MySpringApp.model.User;
-
-// import io.micrometer.observation.transport.RequestReplySenderContext;
+import com.springapp.MySpringApp.service.UserServiceIMPL;
 
 @Controller
 public class MyController {
-    // @GetMapping("/hello")
-    // public ModelAndView extractLabels(String name, ModelMap map) {
-    // map.addAttribute("name", name);
-    // return new ModelAndView("hello", map);
-    // }
+
+    @Autowired
+    UserServiceIMPL service;
+
     @GetMapping("/index")
     public String getIndex() {
         return "index";
@@ -46,8 +39,9 @@ public class MyController {
 
     @PostMapping("/login")
     public String getLogin(@ModelAttribute User a) {
-
+        service.addUser(a);
         System.out.println(a);
+        System.out.println("User added successfully!");
 
         return "login";
     }

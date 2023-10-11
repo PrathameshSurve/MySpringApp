@@ -1,13 +1,54 @@
 package com.springapp.MySpringApp.model;
 
-public class User {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "UserData")
+public class User {
+    @Id
+    @GeneratedValue
+    private int id;
+    @Column(name = "Name") // This annotation is not compulsory. By default it will create a column.
     private String uname;
+    @Column(name = "Email")
     private String uemail;
+    // @Column(name = "Mobile")
+    // private int umob;
+    @Column(name = "Password")
     private String upassword;
+    // @Column(name = "Confirmpassword")
+    // private String uconfirmpassword;
 
     public User() {
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    // public int getUmob() {
+    // return umob;
+    // }
+
+    // public void setUmob(int umob) {
+    // this.umob = umob;
+    // }
+
+    // public String getUconfirmpassword() {
+    // return uconfirmpassword;
+    // }
+
+    // public void setUconfirmpassword(String uconfirmpassword) {
+    // this.uconfirmpassword = uconfirmpassword;
+    // }
 
     public String getUname() {
         return uname;
@@ -35,7 +76,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "user [uname=" + uname + ", uemail=" + uemail + ", upassword=" + upassword + "]";
+        return "User [id=" + id + ", uname=" + uname + ", uemail=" + uemail + /* ",  umob=" +umob + */", upassword="
+                + upassword + /* ",  uconfirmpassword=" + uconfirmpassword + */"]";
     }
 
 }
