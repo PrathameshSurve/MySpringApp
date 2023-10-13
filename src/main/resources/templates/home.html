@@ -1,56 +1,70 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible; Content-Type" content="IE=edge; text/html">
+    <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
     <link rel="stylesheet" th:href="@{/css/home.css}" />
-</head> 
+    <script th:inline="javascript">
+        window.addEventListener("scroll", function(){
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        })
+    </script>
+</head>
 <body>
-    <nav>
-        <ul>
-            <li><a th:href="@{#home}">Home</a></li>
-            <li><a th:href="@{/about}">About</a></li>
-            <li><a th:href="@{/contact}">Contact</a></li>
-            <li><a th:href="@{/login}">Logout</a></li>
-        </ul>
-    </nav>
-    <div class="WelcomeUser" id="home">
-        Dear <span th:text="${username}">,</span><br>
-        Welcome to Spring Boot and Thymeleaf code sample!!! <br>
-        Please go through instruction only.
-    </div>
-    
-    <div class="imgcontainer">
-        <img th:src="@{/images/CameraHDimage.jpg}" alt="My Image 1"/>
-    </div>
-    <div>
-        <table>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-    </div>
-    <div></div>
-    <div></div>
-    
-   
-    
+    <header>
+        <a href="#" class="logo">Blog<span class="red">i</span>t</a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/articles">Articles</a></li>
+                <li><a href="/categories">Categories</a></li>
+            </ul>
+            <div class="register">
+                <a href="/login" id="login">Login</a>
+                <a href="/signup" id="signup">Sign Up!</a>
+            </div>
+    </header>
+    <main>
+        <section class="featured-articles">
+            <!-- Display a selection of featured articles -->
+            <h2>Featured Articles</h2>
+            <div th:each="article : ${featuredArticles}">
+                <div class="article-card">
+                    <h3 th:text="${article.title}"></h3>
+                    <p th:text="${article.summary}"></p>
+                    <a th:href="@{/article/{id}(id=${article.id})}">Read more</a>
+                </div>
+            </div>
+        </section>
+        <section class="latest-comments">
+            <!-- Display the latest comments on articles -->
+            <h2>Latest Comments</h2>
+            <div th:each="comment : ${latestComments}">
+                <div class="comment">
+                    <p><strong th:text="${comment.user}"></strong> commented on <a th:href="@{/article/{id}(id=${comment.articleId})}" th:text="${comment.articleTitle}">this article</a>:</p>
+                    <p th:text="${comment.text}"></p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ul-container">
+            <ul class="first-ul">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+            <ul class="second-ul">
+                <li>Item A</li>
+                <li>Item B</li>
+                <li>Item C</li>
+            </ul>
+        </div>
+        
+    </main>
+    <footer>
+        <p>&copy; 2023 Blogit by Prathamesh Surve. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>

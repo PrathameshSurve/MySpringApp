@@ -3,6 +3,7 @@ package com.springapp.MySpringApp.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -10,7 +11,7 @@ import jakarta.persistence.Table;
 @Table(name = "UserData")
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     @Column(name = "Name") // This annotation is not compulsory. By default it will create a column.
     private String uname;

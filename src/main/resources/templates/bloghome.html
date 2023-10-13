@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible; Content-Type" content="IE=edge; text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Home</title>
+    <link rel="stylesheet" th:href="@{/css/bloghome.css}" />
+</head> 
+<body>
+    <nav>
+        <ul>
+            <li><a th:href="@{#home}">Home</a></li>
+            <li><a th:href="@{/about}">About</a></li>
+            <li><a th:href="@{/contact}">Contact</a></li>
+            <li><a th:href="@{/home}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="WelcomeUser" id="home">
+        Dear <span th:text="${username}">,</span><br>
+        Welcome to Spring Boot and Thymeleaf code sample!!! <br>
+        Please go through instruction only.
+    </div>
+    
+    <div class="imgcontainer">
+        <img th:src="@{/images/CameraHDimage.jpg}" alt="My Image 1"/>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <div></div>
+    <div></div>
+    
+   
+    
+</body>
+</html>

@@ -12,8 +12,9 @@ public class UserServiceIMPL implements UserService {
     Repo obj;
 
     @Override
-    public void addUser(User user) {
+    public User addUser(User user) {
         obj.save(user);
+        return user;
     }
 
 }

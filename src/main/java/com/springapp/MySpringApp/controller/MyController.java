@@ -16,15 +16,29 @@ public class MyController {
     @Autowired
     UserServiceIMPL service;
 
-    @GetMapping("/index")
-    public String getIndex() {
-        return "index";
+    @GetMapping("/home")
+    public String getHome() {
+        return "home";
     }
 
-    @PostMapping("/home")
-    public String getHome(@ModelAttribute LoginUser referncevarible) {
+    @GetMapping("/signup")
+    public String getIndex() {
+        return "signup";
+    }
+
+    @PostMapping("/login")
+    public String getLogin(@ModelAttribute User a) {
+        service.addUser(a);
+        System.out.println(a);
+        System.out.println("User added successfully!");
+
+        return "login";
+    }
+
+    @PostMapping("/bloghome")
+    public String getBlogHome(@ModelAttribute LoginUser referncevarible) {
         System.out.println(referncevarible);
-        return "home";
+        return "bloghome";
     }
 
     @GetMapping("/about")
@@ -35,15 +49,6 @@ public class MyController {
     @GetMapping("/contact")
     public String getContact() {
         return "Contact";
-    }
-
-    @PostMapping("/login")
-    public String getLogin(@ModelAttribute User a) {
-        service.addUser(a);
-        System.out.println(a);
-        System.out.println("User added successfully!");
-
-        return "login";
     }
 
 }

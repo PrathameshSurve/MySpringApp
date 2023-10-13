@@ -4,5 +4,5 @@ import com.springapp.MySpringApp.model.User;
 
 public interface UserService {
 
-    public void addUser(User user);
+    public User addUser(User user);
 }
